@@ -8,13 +8,9 @@ public:
         {
             if(nums[i]==nums[i+1])
             {
-                ans=true;
-                break;
+                return true;
             }
         }
-        if(ans==true)
-            return true;
-        else
-            return false;
+        return false;
     }
 };
