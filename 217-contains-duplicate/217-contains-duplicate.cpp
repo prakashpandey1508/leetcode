@@ -2,21 +2,14 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums)
     {
-        map<int,int>m;
-        for(int i=0;i<nums.size();i++)
-            m[nums[i]]++;
-        bool ans=false;
-        for(auto it:m)
-        {
-            if(it.second>=2)
-            {
-                ans=true;
-                break;
-            }
-        }
-        if(ans==true)
-            return ans;
+        set<int>s;
+        s.insert(nums.begin(),nums.end());
+        if(s.size()<nums.size())
+            return true;
         else
             return false;
+        
+        
+        
     }
 };
