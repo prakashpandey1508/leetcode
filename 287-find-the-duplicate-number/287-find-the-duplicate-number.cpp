@@ -2,18 +2,18 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums)
     {
-        map<int,int>m;
+        int m[100001]={0};
         for(int i=0;i<nums.size();i++)
         {
             m[nums[i]]++;
         }
         int ans;
-        map<int,int>::iterator it;
-        for(it=m.begin();it!=m.end();it++)
+        for(int i=1;i<=100001;i++)
         {
-            if(it->second>=2)
+            if(m[i]>=2)
             {
-                ans=it->first;
+                ans=i;
+                break;
             }
         }
         return ans;
