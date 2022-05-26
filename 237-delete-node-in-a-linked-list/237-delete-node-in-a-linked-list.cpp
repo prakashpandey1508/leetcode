@@ -13,9 +13,11 @@ public:
        if(node->next==NULL)
            delete node;
         
-        swap(node->val,node->next->val);
-        ListNode* temp=node->next;
+        ListNode* temp1=node;
+        ListNode* temp2=node->next;
+        swap(temp1->val,temp2->val);
+        ListNode* temp3=node->next;
         node->next=node->next->next;
-        delete temp;
+        delete temp3;
     }
 };
