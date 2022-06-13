@@ -5,7 +5,7 @@ public:
     
     MyHashMap() 
     {
-        siz=100;
+        siz=11;
         m.resize(siz);
     
     }
