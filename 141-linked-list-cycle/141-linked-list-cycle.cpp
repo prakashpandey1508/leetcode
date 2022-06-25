@@ -15,29 +15,19 @@ public:
         if(head->next==NULL)
             return false;
        ListNode* temp=head;
-        map<ListNode*,int>m;
+        ListNode* slow=head;
+        ListNode* fast=head;
         int ans=0;
-        while(temp!=NULL)
+        while(fast!=NULL && fast->next!=NULL)
         {
-            m[temp]++;
-            temp=temp->next;
-            if(m[temp]>=2)
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast)
             {
                 ans=1;
                 break;
             }
         }
-        // map<ListNode*,int>::iterator it;
-        // int ans=0;
-        // for(it=m.begin();it!=m.end();it++)
-        // {
-        //     cout<<it->first<<it->second<<endl;
-        //     if(it->second>=2)
-        //     {
-        //         ans=1;
-        //         break;
-        //     }
-        // }
         if(ans==1)
             return true;
         else
