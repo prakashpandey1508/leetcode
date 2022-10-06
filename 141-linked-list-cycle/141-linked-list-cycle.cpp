@@ -14,17 +14,17 @@ public:
              return false;
         if(head->next==NULL)
             return false;
-        map<ListNode*,int>m;
-        ListNode* temp=head;
-        while(temp!=NULL)
+        ListNode* slow=head;
+        ListNode* fast=head;
+        while(slow!=NULL && fast!=NULL && fast->next!=NULL)
         {
-            m[temp]++;
-            cout<<temp<<endl;
-            if(m[temp]>=2)
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast)
                 return true;
-            temp=temp->next;
         }
         return false;
+    
         
     }
 };
