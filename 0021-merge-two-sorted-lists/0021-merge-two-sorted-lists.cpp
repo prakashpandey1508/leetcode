@@ -10,68 +10,44 @@
  */
 class Solution {
 public:
-     ListNode* merge(ListNode* l1,ListNode* l2)
-     {
-         if(l1==NULL)
-             return l2;
-         if(l2==NULL)
-             return l1;
-         if(l1->val<l2->val)
-         {
-             l1->next=merge(l1->next,l2);
-             return l1;
-         }
-         else
-         {
-             l2->next=merge(l2->next,l1);
-             return l2;
-         }
-     }
-    
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) 
+    ListNode* merge(ListNode* list1, ListNode* list2)
     {
-        /*if(list1==NULL)
-            return list2;
+    if(list1==NULL)
+           return list2;
         if(list2==NULL)
             return list1;
-        
-       ListNode* ans=new ListNode(-1);
-        ListNode* tail=ans;
         if(list1->val<list2->val)
         {
-            ans=list1;
-            tail=list1;
-            list1=list1->next;
+            list1->next=merge(list1->next,list2);
+            return list1;
         }
         else
         {
-            ans=list2;
-            tail=list2;
-            list2=list2->next;
+            
+                list2->next=merge(list1,list2->next);
+                    return list2;
+            
         }
-        while(list1!=NULL && list2!=NULL)
+    }
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) 
+    {
+      /* if(list1==NULL)
+           return list2;
+        if(list2==NULL)
+            return list1;
+        if(list1->val<list2->val)
         {
-            if(list1->val<list2->val)
-            {
-                tail->next=list1;
-                tail=list1;
-                list1=list1->next;
-            }
-            else
-            {
-                tail->next=list2;
-                tail=list2;
-                list2=list2->next;
-                
-            }
-        }
-        if(list1==NULL)
-        {
-            tail->next=list2;
+            list1->next=mergeTwoLists(list1->next,list2);
+            return list1;
         }
         else
-            tail->next=list1;*/
-        
+        {
+            if(list2->val<list1->val)
+            {
+                list2->next=mergeTwoLists(list1,list2->next);
+                    return list2;
+            }
+        }*/
         return merge(list1,list2);
     }
 };
