@@ -18,7 +18,8 @@ public :
 
 class Solution{
 
-    stack<int> s1,s2;
+    stack<int> s1;
+    int mini=INT_MAX;
     public:
     
        /*returns min element from stack*/
@@ -27,33 +28,31 @@ class Solution{
            //Write your code here
             if(s1.empty())
                 return -1;
-                else if(s2.empty())
-                return -1;
-                else
-                return s2.top();
+            else
+                return mini;
        }
        
        /*returns poped element from stack*/
        int pop(){
            
            //Write your code here
-            if(s1.empty())
+            if(s1.size()==0)
             return -1;
+            int curr=s1.top();
+            s1.pop();
+             if(curr>mini)
+            {
+        
+                return curr;
+            }
             else
             {
-                if(s1.top()==s2.top())
-                {
-                    int x=s1.top();
-                    s1.pop();
-                    s2.pop();
-                    return x;
-                }
-                else
-                {
-                    int x=s1.top();
-                    s1.pop();
-                    return x;
-                }
+                
+                 int prevmini=mini;
+                 int val=2*mini-curr;
+                 mini=val;
+                 return prevmini;
+        
             }
            }
        
@@ -62,15 +61,26 @@ class Solution{
        {
            
            //Write your code her
-             if(s1.empty())
-                 s2.push(x);
-                 
-             else if(x<=s2.top())
-                 s2.push(x);
-                 s1.push(x);
-                      
+           if(s1.size()==0)
+           {
+               s1.push(x);
+               mini=x;
                
-           
+           }
+           else
+           {
+               if(x<mini)
+               {
+               int val=2*x-mini;
+               mini=x;
+               s1.push(val);
+               }
+               else
+           {
+               s1.push(x);
+           }
+           }
+          
        }
 };
 
