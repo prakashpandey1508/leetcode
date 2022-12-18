@@ -19,9 +19,9 @@ Middle of linked list is 3.</span>
 
 <pre><strong><span style="font-size:18px">Input:</span></strong><strong><span style="font-size:18px">
 </span></strong><span style="font-size:18px">LinkedList: 2-&gt;4-&gt;6-&gt;7-&gt;5-&gt;1
-<strong>Output: </strong>7 
+<strong>Output: </strong>4 
 <strong>Explanation:</strong> 
-Middle of linked list is 7.</span>
+Middle of linked list is 4.</span>
 </pre>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
